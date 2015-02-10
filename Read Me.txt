@@ -1,0 +1,127 @@
+Project Euler
+
+DESCRIPTION
+------------------------------
+
+https://projecteuler.net
+
+Tasks:
+- Create a new project
+- Create a list with dynamic cells
+- Create a plist with problems from project euler
+- Display all the problems in the list by loading them from the plist file
+- Tappin on reference should open the corresponding page in Safari
+- Tapping on a problem should execute and return the solution of the problem
+
+
+BUILD REQUIREMENTS
+------------------------------
+iOS 7.0 SDK or later
+
+
+RUNTIME REQUIREMENTS
+------------------------------
+iOS 7.0 or later
+
+
+THIRD PARTY TOOLS/ LIBRARIES/ FRAMEWORKS
+------------------------------
+
+Application Icon Template (Version 4.1, Last updated December 2014)
+This template includes quick rendering of every single iOS 5, 6, 7 and 8 sizes along with bundled textures, colors and gradients. Automatically rendered previews of your app icon in the app store and on the homescreen and easy export actions utilizing new and improved bicubic scaling for a smoother output.
+http://appicontemplate.com/ios8
+
+
+HELP/ REFERENCES
+------------------------------
+
+Launch Images
+https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/LaunchImages.html
+
+
+TIPS & TRICKS
+------------------------------
+
+-
+What does exclamation and question mark mean in Swift?
+(h/t http://stackoverflow.com/questions/24018327/what-does-an-exclamation-mark-mean-in-the-swift-language)
+
+The Swift Programming Language guide has the following example:
+
+<example>
+
+class Person {
+    let name: String
+    init(name: String) { self.name = name }
+    var apartment: Apartment?
+    deinit { println("\(name) is being deinitialized") }
+}
+
+class Apartment {
+    let number: Int
+    init(number: Int) { self.number = number }
+    var tenant: Person?
+    deinit { println("Apartment #\(number) is being deinitialized") }
+}
+
+var john: Person?
+var number73: Apartment?
+
+john = Person(name: "John Appleseed")
+number73 = Apartment(number: 73)
+
+</example>
+
+Exclamation and question marks are directly related to the concept of "optionals" in Swift programming language.
+
+You use optionals in situations where a value may be absent.
+
+If john were an optional var (declared thusly)
+
+var john: Person?
+
+then it would be possible for john to have no value (in ObjC parlance, nil value).
+
+The exclamation point basically tells the compiler "I know this has a value, you don't need to test for it".
+
+john.apartment = number73
+
+The compiler will interpret this line as:
+
+if john != nil {
+    john.apartment = number73
+}
+
+While
+
+john!.apartment = number73
+
+The compiler will interpret this line as simply:
+
+john.apartment = number73
+
+Hence, using ! will unwrap the if statement, and make it run faster, but if john is nil, then a runtime error will happen.
+
+
+-
+Convert NSMutableArray to Swift Array (Array[Type])
+
+var nsArray = NSMutableArray()
+var swiftArray = nsArray as AnyObject as [String]
+
+
+-
+The easy way to dismiss the keyboard in iOS
+Published by Josh Brown on January 26, 2015
+(h/t http://roadfiresoftware.com/2015/01/the-easy-way-to-dismiss-the-ios-keyboard/)
+
+If you want to dismiss the iOS keyboard programmatically in your app without worrying about which view is the first responder, try the following:
+
+In Swift:
+UIApplication.sharedApplication().sendAction("resignFirstResponder", to:nil, from:nil, forEvent:nil)
+
+In Objective-C:
+[[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+
+
+Copyright (c) 2014 Mustafa. All rights reserved.
