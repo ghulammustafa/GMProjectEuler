@@ -96,6 +96,26 @@ class ProjectEulerProblemsManager {
             result = solveProblem009()
         case 10:
             result = solveProblem010()
+        case 11:
+            result = solveProblem011()
+        case 12:
+            result = solveProblem012()
+        case 13:
+            result = solveProblem013()
+        case 14:
+            result = solveProblem014()
+        case 15:
+            result = solveProblem015()
+        case 16:
+            result = solveProblem016()
+        case 17:
+            result = solveProblem017()
+        case 18:
+            result = solveProblem018()
+        case 19:
+            result = solveProblem019()
+        case 20:
+            result = solveProblem020()
         default:
             result = ""
         }
