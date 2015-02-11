@@ -143,12 +143,8 @@ class ProjectEulerProblemsManager {
             }
         }
 
-        // Formatted sum (number style)
-        let numberFormatter = NSNumberFormatter()
-        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
-        numberFormatter.maximumFractionDigits = 0
-        
-        let formattedResult = numberFormatter.stringFromNumber(sum)!
+        // Result
+        let formattedResult = formattedNumberString(sum)
         var result = "The sum of all the multiples of 3 or 5, below 1000 is:\n\n\(formattedResult)"
         
         return result
@@ -163,14 +159,14 @@ class ProjectEulerProblemsManager {
         //
         //Solved by: GM
 
-        var fibonnaciSequence: [Int32] = []
+        var fibonnaciSequence: [Int] = []
         
-        var secondLastFibbonacciNumber: Int32 = 1
-        var lastFibbonacciNumber: Int32 = 2
-        var fibbonacciNumber: Int32 = 0
+        var secondLastFibbonacciNumber: Int = 1
+        var lastFibbonacciNumber: Int = 2
+        var fibbonacciNumber: Int = 0
         
-        var sum: Int32 = 0 + lastFibbonacciNumber
-        var limit: Int32 = 100// 4000000
+        var sum: Int = 0 + lastFibbonacciNumber
+        var limit: Int = 100// 4000000
         
         fibonnaciSequence.append(secondLastFibbonacciNumber)
         fibonnaciSequence.append(lastFibbonacciNumber)
@@ -202,38 +198,77 @@ class ProjectEulerProblemsManager {
             }
         }
         
-        // Formatted sum (number style)
-        let numberFormatter = NSNumberFormatter()
-        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
-        numberFormatter.maximumFractionDigits = 0
-        
-        let formattedResult = numberFormatter.stringFromNumber(NSNumber(int: sum))!
+        // Result
+        let formattedResult = formattedNumberString(sum)
         var result = "The sum of the even-valued Fibonacci terms is:\n\n\(formattedResult)"
         
         return result
     }
 
     func solveProblem003() -> String {
+        // Largest prime factor
+        // The prime factors of 13195 are 5, 7, 13 and 29.
+        // What is the largest prime factor of the number 600851475143?
+        //
+        //Solved by: SM
+        //Solution Note: Implemented algo from following link for fast computation
+        //http://stackoverflow.com/questions/23287/largest-prime-factor-of-a-number/23013770#23013770
+        
+        let num:Int = 600851475143
+        var n:Int = num
+        var i:Int = 2
+        var test:Int = 0
+        var maxPrimeFactor:Int = 2
+        
+        while (n > 1) {
+            
+            while (n % i == 0) {
+                n = n/i
+            }
+            
+            i++
+            
+            if (i*i > n && n > 1) {
+                maxPrimeFactor = n
+                test = 1
+                break
+            }
+        }
+        
+        if (test == 0) {
+            maxPrimeFactor = i-1
+        }
+        
+        // Result
+        let formattedResult = formattedNumberString(maxPrimeFactor)
+        var result = "The largest prime factor of the number 600,851,475,143 is:\n\n\(formattedResult)"
+        
+        return result
+    }
+    
+    func solveProblem003__deprecated_2015_02_11() -> String {
         //Largest prime factor
         //
         //The prime factors of 13195 are 5, 7, 13 and 29.
         //What is the largest prime factor of the number 600851475143?
         //
         //Solved by: GM
-        //Solution Note: This solution is extremely slow!
+        //Solution Note: This solution is _extremely_ slow!
         
         var theNumber: Int = 600851475143
         var primeFactors: [Int] = []
         
+        // Loop to find all prime factors of the number
         var number: Int = 0
         
         for number in 2..<(theNumber/2) {
             
             if isPrime(number) {
-                [primeFactors .append(number)]
+                [primeFactors.append(number)]
             }
         }
         
+        // Find the largest prime factor
         var largestPrime: Int = -1;
         var index: Int = primeFactors.count
 
@@ -245,12 +280,8 @@ class ProjectEulerProblemsManager {
             }
         }
         
-        // Formatted sum (number style)
-        let numberFormatter = NSNumberFormatter()
-        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
-        numberFormatter.maximumFractionDigits = 0
-        
-        let formattedResult = numberFormatter.stringFromNumber(NSNumber(integer: largestPrime))!
+        // Result
+        let formattedResult = formattedNumberString(largestPrime)
         var result = "The largest prime factor of the number 600,851,475,143 is:\n\n\(formattedResult)"
 
         return result
@@ -635,6 +666,15 @@ class ProjectEulerProblemsManager {
     }
 
     // MARK: Convenience methods
+    
+    func formattedNumberString(number: Int) -> String {
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.maximumFractionDigits = 0
+
+        let formattedResult = numberFormatter.stringFromNumber(NSNumber(integer: number))!
+        return formattedResult
+    }
     
     func isPrime(number: Int) -> Bool {
         
