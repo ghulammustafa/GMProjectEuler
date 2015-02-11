@@ -166,7 +166,7 @@ class ProjectEulerProblemsManager {
         var fibbonacciNumber: Int = 0
         
         var sum: Int = 0 + lastFibbonacciNumber
-        var limit: Int = 100// 4000000
+        var limit: Int = 4000000
         
         fibonnaciSequence.append(secondLastFibbonacciNumber)
         fibonnaciSequence.append(lastFibbonacciNumber)
