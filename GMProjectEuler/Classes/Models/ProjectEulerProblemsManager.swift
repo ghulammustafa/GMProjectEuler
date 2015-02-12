@@ -57,7 +57,6 @@ class ProjectEulerProblemsManager {
                 objectsArray.append(aProblem)
             }
             
-            println("Imported problems:\n\(objectsArray)")
             self.problems = objectsArray
 
         } else {
@@ -73,9 +72,9 @@ class ProjectEulerProblemsManager {
 
         switch (problem.number) {
         case 1:
-            result = solveProblem001() // Solved!
+            result = solveProblem001()
         case 2:
-            result = solveProblem002() // Solved!
+            result = solveProblem002()
         case 3:
             result = solveProblem003()
         case 4:
