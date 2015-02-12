@@ -332,7 +332,6 @@ class ProjectEulerProblemsManager {
             }
         }
         
-        
         var result = "The largest palindrome made from the product of two 3-digit numbers is \(maxProduct) = \(n1) × \(n2)"
         return result
     }
