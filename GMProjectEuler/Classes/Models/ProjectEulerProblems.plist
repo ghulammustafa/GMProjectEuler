@@ -45,7 +45,7 @@ What is the largest prime factor of the number 600851475143?</string>
 		<key>reference</key>
 		<string>https://projecteuler.net/problem=3</string>
 		<key>status</key>
-		<string>red</string>
+		<string>green</string>
 	</dict>
 	<dict>
 		<key>number</key>
@@ -59,7 +59,7 @@ Find the largest palindrome made from the product of two 3-digit numbers.</strin
 		<key>reference</key>
 		<string>https://projecteuler.net/problem=4</string>
 		<key>status</key>
-		<string>grey</string>
+		<string>green</string>
 	</dict>
 	<dict>
 		<key>number</key>

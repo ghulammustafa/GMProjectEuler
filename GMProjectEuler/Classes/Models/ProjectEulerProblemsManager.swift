@@ -292,10 +292,51 @@ class ProjectEulerProblemsManager {
         //
         //A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
         //Find the largest palindrome made from the product of two 3-digit numbers.
-        
-        return "[Implementation Pending]"
-    }
+        //
+        //Solved by: SM
 
+        var i:Int
+        var j:Int
+        
+        var n:Int
+        var numberInString:String
+        
+        var p:Bool
+        var found:Bool = false
+        
+        var n1:Int = 0
+        var n2:Int = 0
+        var maxProduct:Int = 0
+        
+        for i = 999; i >= 100 && !found; i-- {
+            
+            for j = 999; j >= 100 && !found; j-- {
+                
+                // Taking product of 3-digit numbers
+                n = i * j
+                
+                // Converting int to string to get number of digits
+                numberInString = toString(n)
+                
+                p = isPalindrome(numberInString)
+                
+                // Palindrome number found!!!
+                // Developer's Note : brk is used to break out of nested for loops
+                if (p) {
+                    n1 = i
+                    n2 = j
+                    maxProduct = n
+                    found = true
+                    break
+                }
+            }
+        }
+        
+        
+        var result = "The largest palindrome made from the product of two 3-digit numbers is \(maxProduct) = \(n1) × \(n2)"
+        return result
+    }
+    
     func solveProblem005() -> String {
         //Smallest multiple
         //
@@ -695,5 +736,38 @@ class ProjectEulerProblemsManager {
         }
         
         return true
+    }
+    
+    func isPalindrome(input: String) -> Bool {
+        var p: Bool = true
+        var numberOfDigits: Int
+        var count: Int
+        var index: Int = 0
+        
+        var c1: Character
+        var c2: Character
+        
+        numberOfDigits = countElements(input)
+        
+        // Index is used to traverse string from start, Count is used to traverse string from end
+        count = numberOfDigits-1
+        index = 0
+        
+        while (index < count) {
+            c1 = input[advance(input.startIndex, index)]
+            c2 = input[advance(input.startIndex, count)]
+            
+            // Comparing characters at start and end index to verify palindrome number
+            if (c1 == c2) {
+                index++
+                count--
+                
+            } else {
+                p = false
+                break
+            }
+        }
+        
+        return p
     }
 }

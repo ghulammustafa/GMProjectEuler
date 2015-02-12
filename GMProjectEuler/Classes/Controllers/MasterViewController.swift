@@ -72,6 +72,7 @@ extension MasterViewController: UITableViewDataSource {
         cell.numberLabel.text = String(p.number)
         cell.titleLabel.text = p.title
         cell.detailLabel.text = p.detail
+        cell.carrotView.backgroundColor = p.statusColor
         
         // Developer's Note:
         // The following line resolves an annoying issue where the cell height appears to be incorrect and labels don't wrap text correctly.

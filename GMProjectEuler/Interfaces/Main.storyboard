@@ -90,15 +90,25 @@
                                                 <action selector="referenceButtonTapped:" destination="m0d-ak-lc9" eventType="touchUpInside" id="4o4-SK-HBI"/>
                                             </connections>
                                         </button>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fa4-RH-2BV">
+                                            <rect key="frame" x="580" y="0.0" width="20" height="20"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="kck-RL-gkW"/>
+                                                <constraint firstAttribute="width" constant="20" id="vP8-Bz-aCq"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Qxq-ag-Vfl" firstAttribute="top" relation="greaterThanOrEqual" secondItem="TLS-GW-sOr" secondAttribute="bottom" constant="17" id="0iN-Le-fnV"/>
+                                        <constraint firstItem="fa4-RH-2BV" firstAttribute="top" secondItem="d3P-M7-ByW" secondAttribute="top" id="FgS-ba-hdL"/>
                                         <constraint firstItem="TLS-GW-sOr" firstAttribute="top" secondItem="d3P-M7-ByW" secondAttribute="topMargin" constant="4" id="I30-AS-8vZ"/>
                                         <constraint firstItem="Qxq-ag-Vfl" firstAttribute="leading" secondItem="d3P-M7-ByW" secondAttribute="leadingMargin" constant="40" id="M50-LC-6VU"/>
                                         <constraint firstItem="Ga2-md-0m1" firstAttribute="leading" secondItem="TLS-GW-sOr" secondAttribute="leading" id="ML8-7O-HOo"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Ga2-md-0m1" secondAttribute="bottom" constant="23" id="NAV-hZ-VJU"/>
                                         <constraint firstItem="Ga2-md-0m1" firstAttribute="top" secondItem="TLS-GW-sOr" secondAttribute="bottom" priority="750" constant="2" id="UBx-5A-iFq"/>
                                         <constraint firstItem="Ga2-md-0m1" firstAttribute="trailing" secondItem="TLS-GW-sOr" secondAttribute="trailing" id="Vmr-UH-hp5"/>
+                                        <constraint firstAttribute="trailing" secondItem="fa4-RH-2BV" secondAttribute="trailing" id="Z1k-f6-ruk"/>
                                         <constraint firstItem="TLS-GW-sOr" firstAttribute="leading" secondItem="npA-85-fNa" secondAttribute="trailing" constant="8" symbolic="YES" id="ag6-l6-cya"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="TLS-GW-sOr" secondAttribute="trailing" constant="4" id="biJ-EH-Li6"/>
                                         <constraint firstItem="npA-85-fNa" firstAttribute="top" secondItem="d3P-M7-ByW" secondAttribute="topMargin" constant="2" id="fQT-cA-7y4"/>
@@ -120,6 +130,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
+                                    <outlet property="carrotView" destination="fa4-RH-2BV" id="Fhg-NC-uwF"/>
                                     <outlet property="detailLabel" destination="Ga2-md-0m1" id="Fr6-pT-bbd"/>
                                     <outlet property="numberLabel" destination="Wme-Ze-oYC" id="NDJ-Ki-zid"/>
                                     <outlet property="numberView" destination="npA-85-fNa" id="ePa-0x-FNX"/>
