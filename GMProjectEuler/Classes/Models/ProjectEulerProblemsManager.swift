@@ -341,8 +341,36 @@ class ProjectEulerProblemsManager {
         //
         //2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
         //What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+        //
+        //Solved by: SM
 
-        return "[Implementation Pending]"
+        var num:Int = 400
+        var c:Bool = true
+        
+        while (c) {
+            
+            // Check divisibility by prime numbers : 19, 17, 13, 11
+            // Divisible by 18 => Divisibility by 9, 6, 3 and 2
+            // Divisible by 16 => Divisibility by 8, 4 and 2
+            // Divisible by 14 => Divisibility by 7 and 2
+            // Divisible by 10 => Divisibility by 10 and 5
+            
+            // ============ (NO NEED TO CHECK - ALREADY CHECKED) =============
+            // Divisible by 15 => Divisibility by 5 and 3
+            // Divisible by 12 => Divisibility by 6, 4, 3 and 2
+            
+            if ((num % 19 == 0) && (num % 18 == 0) && (num % 17 == 0) && (num % 16 == 0) && (num % 14 == 0) && (num % 13 == 0) && (num % 11 == 0) && (num % 10 == 0)) {
+                c = false
+                
+            } else {
+                
+                // Adding 10 because it should be divisible by 10
+                num += 10
+            }
+        }
+        
+        var result = "Smallest positive number that is evenly divisible by all of the numbers from 1 to 20 is : \(num)"
+        return result
     }
 
     func solveProblem006() -> String {
