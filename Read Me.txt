@@ -6,6 +6,12 @@ DESCRIPTION
 https://projecteuler.net
 
 
+CONTRIBUTORS
+------------------------------
+Ghulam Mustafa (GM)
+Shahrukh Malik (SM)
+
+
 BUILD REQUIREMENTS
 ------------------------------
 iOS 7.0 SDK or later

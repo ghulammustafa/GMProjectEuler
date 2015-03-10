@@ -383,8 +383,23 @@ class ProjectEulerProblemsManager {
         //
         //Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 3025 − 385 = 2640.
         //Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+        //
+        //Solved by: SM
+
+        var i:Int = 1
+        var sumOfSquares:Int = 0
+        var sum:Int = 0
         
-        return "[Implementation Pending]"
+        for i = 1; i <= 100; i++ {
+            sum += i
+            sumOfSquares += (i*i)
+        }
+        
+        let squareOfSum:Int = sum * sum
+        let diff:Int = squareOfSum - sumOfSquares
+        
+        var result = "Difference between the sum of the squares of the first one hundred natural numbers and the square of the sum is \(squareOfSum) - \(sumOfSquares) = \(diff)"
+        return result
     }
 
     func solveProblem007() -> String {
@@ -392,8 +407,29 @@ class ProjectEulerProblemsManager {
         //
         //By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
         //What is the 10 001st prime number?
+        //
+        //Solved by: SM
+
+        let endIndex:Int = 10001
+        var c:Bool = true
         
-        return "[Implementation Pending]"
+        var num:Int = 2
+        var currentIndex:Int = 0
+        
+        while (c) {
+            if (isPrime(num)) {
+                currentIndex += 1
+            }
+            
+            if (currentIndex == endIndex) {
+                break;
+            }
+            
+            num += 1
+        }
+        
+        var result = "\(endIndex)st prime number is \(num)"
+        return result
     }
 
     func solveProblem008() -> String {
@@ -423,8 +459,35 @@ class ProjectEulerProblemsManager {
         //71636269561882670428252483600823257530420752963450
         //
         //Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
+        //
+        //Solved by: SM
 
-        return "[Implementation Pending]"
+        var numString:String = "7316717653133062491922511967442657474235534919493496983520312774506326239578318016984801869478851843858615607891129494954595017379583319528532088055111254069874715852386305071569329096329522744304355766896648950445244523161731856403098711121722383113622298934233803081353362766142828064444866452387493035890729629049156044077239071381051585930796086670172427121883998797908792274921901699720888093776657273330010533678812202354218097512545405947522435258490771167055601360483958644670632441572215539753697817977846174064955149290862569321978468622482839722413756570560574902614079729686524145351004748216637048440319989000889524345065854122758866688116427171479924442928230863465674813919123162824586178664583591245665294765456828489128831426076900422421902267105562632111110937054421750694165896040807198403850962455444362981230987879927244284909188845801561660979191338754992005240636899125607176060588611646710940507754100225698315520005593572972571636269561882670428252483600823257530420752963450"
+        
+        var index:Int = 0
+        var maxProduct:Int = 0
+        var consNum:Int = 0
+        
+        var maxStringLength:Int = countElements(numString)
+        let numberOfConsecutiveCharacters:Int = 13
+        
+        for index = 0; index <= maxStringLength - numberOfConsecutiveCharacters; index++ {
+            let startIndex = advance(numString.startIndex, index)
+            let endIndex = advance(numString.startIndex, index+numberOfConsecutiveCharacters)
+            
+            var subString:String  = numString[Range(start: startIndex, end: endIndex)]
+            let numFromString:Int = subString.toInt()!
+            
+            let num:Int = productOfDigitsOfNumber(numFromString)
+            
+            if (num > maxProduct) {
+                maxProduct = num
+                consNum = numFromString
+            }
+        }
+        
+        var result = "Max Product of \(numberOfConsecutiveCharacters) consectutive numbers (\(consNum)) is \(maxProduct)"
+        return result
     }
 
     func solveProblem009() -> String {
@@ -437,8 +500,47 @@ class ProjectEulerProblemsManager {
         //There exists exactly one Pythagorean triplet for which a + b + c = 1000.
         //
         //Find the product abc.
+        //
+        //Solved by: SM
+
+        var a:Float = 1
+        var b:Float = 1
+        var c:Float = 1
         
-        return "[Implementation Pending]"
+        var aVal:Int = 1
+        var bVal:Int = 1
+        var cVal:Int = 1
+        
+        var brk:Bool = false // Used to break out of nested loops
+        
+        for a = 1; a <= 1000; a++ {
+            
+            for b = 1; b <= 1000; b++ {
+                
+                for c = 1; c <= 1000; c++ {
+                    
+                    if (a + b + c == 1000 && pow(a, 2) + pow(b, 2) == pow(c, 2)) {
+                        aVal = Int(a)
+                        bVal = Int(b)
+                        cVal = Int(c)
+                        
+                        brk = true
+                        break
+                    }
+                }
+                
+                if (brk) {
+                    break
+                }
+            }
+            
+            if (brk) {
+                break
+            }
+        }
+        
+        var result = "Pythagorean triplet whose sum is equal to 1000 is (\(aVal), \(bVal), \(cVal))"
+        return result
     }
 
     func solveProblem010() -> String {
@@ -446,8 +548,22 @@ class ProjectEulerProblemsManager {
         //
         //The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
         //Find the sum of all the primes below two million.
+        //
+        //Solved by: SM
         
-        return "[Implementation Pending]"
+        let end:Int = 2000000
+        var index:Int = 2
+
+        var sum:Int = 0
+        
+        for index = 2; index < end; index++ {
+            if (isPrime(index)) {
+                sum += index
+            }
+        }
+        
+        var result = "Sum of primes below \(end) is \(sum)"
+        return result
     }
     
     func solveProblem011() -> String {
@@ -743,20 +859,45 @@ class ProjectEulerProblemsManager {
         return formattedResult
     }
     
+    func productOfDigitsOfNumber(number: Int) -> Int {
+        
+        var fourDigitNum:Int = number
+        var product:Int = 1
+        
+        while (fourDigitNum != 0) {
+            let digit:Int = fourDigitNum % 10
+            product *= digit
+            
+            fourDigitNum /= 10
+        }
+        
+        return product
+    }
+
     func isPrime(number: Int) -> Bool {
         
         // Both 0 and 1 are not prime (by definition)
         if (number <= 0 || number == 1) {
             return false
         }
-
+        
+        if (number == 2 || number == 3) {
+            return true
+        }
+        
+        if (number % 2 == 0 || number % 3 == 0) {
+            return false
+        }
+        
+        let num:Double = Double(number)
+        
         // Loop to check if the number is prime
-        var divisor: Int = 0
-        var numberHalf: Int = (number/2)
-
-        for divisor=2; divisor<numberHalf; divisor++ {
-
-            if (number % divisor == 0) {
+        var divisor: Double = 0
+        var numberSqrt: Double = sqrt(num)
+        
+        for divisor=5; divisor<=numberSqrt; divisor+=2 {
+            
+            if (num % divisor == 0) {
                 return false
             }
         }
@@ -795,5 +936,28 @@ class ProjectEulerProblemsManager {
         }
         
         return p
+    }
+    
+    // MARK: Deprecated
+    
+    func isPrime__deprecated_2015_03_10(number: Int) -> Bool {
+        
+        // Both 0 and 1 are not prime (by definition)
+        if (number <= 0 || number == 1) {
+            return false
+        }
+        
+        // Loop to check if the number is prime
+        var divisor: Int = 0
+        var numberHalf: Int = (number/2)
+        
+        for divisor=2; divisor<numberHalf; divisor++ {
+            
+            if (number % divisor == 0) {
+                return false
+            }
+        }
+        
+        return true
     }
 }

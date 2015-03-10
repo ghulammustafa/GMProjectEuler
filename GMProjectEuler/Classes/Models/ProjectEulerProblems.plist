@@ -93,7 +93,7 @@ Find the difference between the sum of the squares of the first one hundred natu
 		<key>reference</key>
 		<string>https://projecteuler.net/problem=6</string>
 		<key>status</key>
-		<string>grey</string>
+		<string>green</string>
 	</dict>
 	<dict>
 		<key>number</key>
@@ -107,7 +107,7 @@ What is the 10 001st prime number?</string>
 		<key>reference</key>
 		<string>https://projecteuler.net/problem=7</string>
 		<key>status</key>
-		<string>grey</string>
+		<string>green</string>
 	</dict>
 	<dict>
 		<key>number</key>
@@ -142,7 +142,7 @@ Find the thirteen adjacent digits in the 1000-digit number that have the greates
 		<key>reference</key>
 		<string>https://projecteuler.net/problem=2=8</string>
 		<key>status</key>
-		<string>grey</string>
+		<string>green</string>
 	</dict>
 	<dict>
 		<key>number</key>
@@ -160,7 +160,7 @@ Find the product abc.</string>
 		<key>reference</key>
 		<string>https://projecteuler.net/problem=9</string>
 		<key>status</key>
-		<string>grey</string>
+		<string>green</string>
 	</dict>
 	<dict>
 		<key>number</key>
@@ -174,7 +174,7 @@ Find the sum of all the primes below two million.</string>
 		<key>reference</key>
 		<string>https://projecteuler.net/problem=10</string>
 		<key>status</key>
-		<string>grey</string>
+		<string>green</string>
 	</dict>
 	<dict>
 		<key>number</key>
