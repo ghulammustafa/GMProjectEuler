@@ -210,7 +210,7 @@ What is the greatest product of four adjacent numbers in the same direction (up,
 		<key>reference</key>
 		<string>https://projecteuler.net/problem=11</string>
 		<key>status</key>
-		<string>grey</string>
+		<string>green</string>
 	</dict>
 	<dict>
 		<key>number</key>
