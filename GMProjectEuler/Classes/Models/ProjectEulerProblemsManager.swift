@@ -743,6 +743,7 @@ class ProjectEulerProblemsManager {
         //
         //What is the value of the first triangle number to have over five hundred divisors?
 
+        // About to solve!
         return "[Implementation Pending]"
     }
 
