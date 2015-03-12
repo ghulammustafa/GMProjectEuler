@@ -742,9 +742,27 @@ class ProjectEulerProblemsManager {
         //We can see that 28 is the first triangle number to have over five divisors.
         //
         //What is the value of the first triangle number to have over five hundred divisors?
-
-        // About to solve!
-        return "[Implementation Pending]"
+        //
+        //Solved by: SM
+        
+        
+        var index:Int = 1
+        var triNum:Int = 0
+        var noOfDivisors:Int = 0
+        let noOfDivisorsLimit:Int = 500
+        
+        while (true) {
+            triNum = triangularNumberForIndex(index)
+            noOfDivisors = numberOfDivisorsForNumber(triNum)
+            
+            if (noOfDivisors > noOfDivisorsLimit) {
+                break;
+            }
+            index++
+        }
+        
+        var result = "First triangular number to have over \(noOfDivisorsLimit) divisors is \(triNum)"
+        return result
     }
 
     func solveProblem013() -> String {
@@ -1064,7 +1082,89 @@ class ProjectEulerProblemsManager {
         return p
     }
     
+    func triangularNumberForIndex(index: Int) -> Int {
+        
+        // Using summation formula : (n * (n+1))/2
+        var sum:Int = (index * (index+1)) / 2
+        return sum
+    }
+    
+    func numberOfDivisorsForNumber(num: Int) -> Int {
+        var count:Int = 0
+        
+        var dblNum = Double(num)
+        var sqrtNum:Double = sqrt(dblNum)
+        
+        var i:Double = 1
+        
+        for i = 1; i*i <= dblNum; i++ {
+            
+            if (dblNum % i == 0) {
+                
+                if (i*i < dblNum) {
+                    count += 2;
+                    
+                } else {
+                    count += 1;
+                }
+            }
+        }
+        
+        return count
+    }
+    
     // MARK: Deprecated
+    
+    // DEVELOPER'S NOTE : Number of divisors is calculated using algorithm from following link
+    // http://www.wikihow.com/Determine-the-Number-of-Divisors-of-an-Integer
+    //
+    func numberOfDivisorsForNumber__deprecated_2015_03_11(num: Int) -> Int {
+        
+        if (num == 2 || num == 3) {
+            return 2
+        }
+        
+        var index:Int = 2
+        
+        var endIndex:Int = num/2
+        
+        var product:Int = 1
+        var expCount = 0
+        
+        var number:Int = num
+        
+        for index = 2; index <= endIndex; index++ {
+            
+            if isPrime(index) {
+                
+                while (number % index == 0) {
+                    expCount++
+                    
+                    number /= index
+                }
+                
+                product *= (expCount+1)
+            }
+            
+            expCount = 0
+        }
+        
+        return product
+    }
+    
+    func numberOfDivisorsForNumber__deprecated_2015_03_10(num: Int) -> Int {
+        var numOfDivisors = 0
+        var i:Int = 1
+        
+        for i = 1; i <= num; i++ {
+            
+            if (num % i == 0) {
+                numOfDivisors++
+            }
+        }
+        
+        return numOfDivisors
+    }
     
     func isPrime__deprecated_2015_03_10(number: Int) -> Bool {
         
